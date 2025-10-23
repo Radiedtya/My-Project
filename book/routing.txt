@@ -1,0 +1,26 @@
+|-------------------------------------------ROUTING-------------------------------------------|
+Routing adalah sebuah method pada sebuah halaman untuk memindahkan ke sebuah halaman lain.
+Dalam Analogi Routing adalah sebagai satpam yang mengarahkan kita kepada sesuatu yang tidak 
+kita ketahui.
+
+// Routing pindah Halaman method get
+Route::get('/about', function () {
+    return 'Selamat Datang di halaman about';
+});
+
+Route::get('/profile', function () {
+    return 'Selamat Datang di halaman profile';
+});
+
+|--------------------------------------Routing dengan parameter--------------------------------------|
+dengan menggunakan parameter yang diisi di URL langsung
+Route::get('/biodata/{namaLengkap}/{tanggalLahir}/{jenisKelamin}/{tempatLahir}/{alamat}/{agama}/{telepon}', function ($namaLengkap,$tanggalLahir,$jenisKelamin,$tempatLahir,$alamat,$agama,$telepon) {
+    return "<h1>Biodata</h1>".
+            "Nama Lengkap : $namaLengkap <br>".
+            "Tanggal Lahir: $tanggalLahir<br>".
+            "Jenis Kelamin: $jenisKelamin<br>".
+            "Tempat Lahir : $tempatLahir<br>".
+            "Alamat       : $alamat<br>".
+            "Agama        : $agama<br>".
+            "Telepon      : $telepon";
+});

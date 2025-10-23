@@ -1,0 +1,143 @@
+|------------------------- Migration & Seeder -------------------------|
+Migration adalah fitur untuk mengelola perubahan skema database 
+(seperti membuat, mengubah, atau menghapus tabel/kolom) secara terstruktur dan otomatis, 
+seperti version control untuk database. Sementara itu, 
+
+Seeder digunakan untuk mengisi data awal atau data dummy ke dalam 
+tabel database secara otomatis, menghindari pengisian 
+data manual satu per satu untuk keperluan pengujian atau pengembangan. 
+
+untuk membuat sebuah Migration(table) & sebuah Seeder(record) pada database, 
+kita perlu langkah-langkah berikut:
+
+// migrate / create table
+1. open git dan cd ke project kita
+2. ketik perintah : php artisan make:migration create_namaTable_table --create=namaTable
+    tujuannya adalah untuk membuat sebuah migrate(table) baru
+3. jika sukses maka akan membuat sebuah file pada folder migration(di folder database)
+4. buka file nya dan lihat
+    <?php
+
+    use Illuminate\Database\Migrations\Migration;
+    use Illuminate\Database\Schema\Blueprint;
+    use Illuminate\Support\Facades\Schema;  ----------> diisi manual jika tidak ada
+
+    return new class extends Migration
+    {
+        /**
+        * Run the migrations.
+        */
+        public function up(): void
+        {
+            Schema::create('posts', function (Blueprint $table) {
+                $table->id();
+                $table->string('title'); --> membuat field pada Migration / Table
+                $table->string('content'); --> membuat field pada migration / Table
+                $table->timestamps();
+            });
+        }
+
+        /**
+        * Reverse the migrations.
+        */
+        public function down(): void
+        {
+            Schema::dropIfExists('posts');
+        }
+    };
+
+// seeder / record
+5. lalu buat seeder untuk mengirim data(record) ke migration / table
+6. ketik perintah : php artisan make:seeder NamaTable/Table/Seeder 
+    Note : ingat awali dengan huruf besar!
+3. jika sukses maka akan membuat sebuah file pada folder seeder(di folder database) 
+7. buka file nya dan lihat 
+    <?php 
+
+    namespace Database\Seeders;
+
+    use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+    use Illuminate\Database\Seeder;
+    use Illuminate\Support\Facades\DB; ----------> diisi manual jika tidak ada
+
+    class PostsTableSeeder extends Seeder
+    {
+        /**
+        * Run the database seeds.
+        */
+        public function run(): void
+        {
+            <--- contoh mengisi seeder / record --->
+            DB::table('posts')->insert([ 
+                example record 1
+                [
+                    'title' => 'Tips Coding Slowly',
+                    'content' => 'lorem ipsum',
+                ],
+                example record 2
+                [
+                    'title' => 'Tips Coding Fast',
+                    'content' => 'lorem ipsum',
+                ],
+                ....
+            ]);
+        }
+    }
+
+    Note: 'saat mengisi record pastikan si fieldnya harus sama dengan yang dibuat!'.
+
+8. lalu buka file DatabaseSeeder.php
+    <?php
+
+    namespace Database\Seeders;
+
+    use App\Models\User;
+    // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+    use Illuminate\Database\Seeder;
+
+    class DatabaseSeeder extends Seeder
+    {
+        /**
+        * Seed the application's database.
+        */
+        public function run(): void
+        {
+            // User::factory(10)->create();
+
+            User::factory()->create([
+                'name' => 'Test User',
+                'email' => 'test@example.com',
+            ]);
+
+            Perhatikan !! 
+            wajib isi jika tidak ada agar bisa dikirim 
+            dan pastikan nama class sama dengan nama file
+            perhtikan besar kecilnya huruf
+
+            $this->call([
+                PostsTableSeeder::class ---> samakan dengan nama file/classnya pada folder seeder.
+                                             note : jika ingin menambahkan class nya caranya sama saja,
+                                                    hanya tinggal tambahkan "," di akhir keywoard class
+            ]);
+        }
+    }
+
+9. pastikan semua aman dan sesuai
+10. jika sudah pasti, lalu jalankan perintah : php artisan migrate
+11. jika sudah berhasil, lalu jalankan perintah : php artisan migrate:fresh
+    tujuannya adalah untuk me-refresh migration
+12. jika sudah di-refresh, lalu jalankan perintah : php artisan db:seed
+13. jika berhasil data akan terkirim, lalu check apakah sudah berhasil semua atau tidak, bisa cek di PhpMyAdmin .
+14. selesai
+
+
+
+NOTE : JIKA ADA GAGAL PASTIKAN DAN CEK SETIAP BARIS DAN KATA PADA FILE!!
+
+
+
+
+- new tips
+php artisan make:model NamaModel -r                : untuk membuat langsung dengan controller tambahkan -r diakhir perintah
+-r : untuk membuat controller dan 
+php artisan migrate --path=nama_file_migration.php : untuk migrate 1 file baru(custom), jadi tidak perlu migrate semua

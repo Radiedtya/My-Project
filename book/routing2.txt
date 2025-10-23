@@ -1,0 +1,27 @@
+|------------------ membuat routing yang pindah halaman ke folder view ------------------|
+
+// routing view/pindah ke halaman view
+    Route::get("halaman1" -> nama di urlnya, function () {
+        return view("tampil1"); -> ini adalah nama file pada folder view(didalam folder resources) dan harus berekstensi namafile.blade.php 
+    });
+
+    Route::get("halaman2", function () {
+        // array hobi
+        $hobi = ["makan", "menyanyi", "nongki", "masak", "main game", "membaca komik", "membaca novel", "nonton anime", "menonton drama", "menonton film"];
+        return view("tampil2", compact("hobi"));
+    });
+
+
+<--------------------- Keyword compact() --------------------->
+keyword compact() adalah untuk mengirimkan sebuah data array ke halaman view yang kita ingin kirimkan.
+Contoh : "hobi" adalah nama variable arraynya, tidak perlu pakai '$' untuk mengisi di compact(). Contoh: compact("hobi")
+untuk menerima sebuah arraynya kita bisa pakai foreach atau cara
+biasa dengan array numerik(pakai nomor)/associative(pakai kata kunci).
+dan memanggilnya kita pakai {{}}. 
+    Contoh : 
+        // dengan foreach 
+        @foreach ($hobi as $h)
+            <ul>
+                <li>{{ $h }}</li>
+            </ul>
+        @endforeach

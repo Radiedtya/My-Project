@@ -1,0 +1,22 @@
+|---------------------------------MVC (Model-View-Controller)---------------------------------|
+MVC adalah pola arsitektur perangkat lunak yang membagi aplikasi menjadi tiga
+komponen utama untuk memisahkan logika bisnis, data, dan presentasi. Komponennya adalah
+Model yang menangani data dan logika bisnis, 
+View yang bertanggung jawab menampilkan antarmuka pengguna (UI), dan 
+Controller sebagai jembatan yang mengatur alur kerja antara Model dan View. 
+
+Model:
+Bertanggung jawab untuk berinteraksi dengan basis data.
+Mengambil, menyimpan, dan memanipulasi data.
+Di Laravel, Model biasanya menggunakan Eloquent ORM untuk memudahkan interaksi basis data.
+
+View:
+Bertanggung jawab untuk menampilkan data kepada pengguna dalam format yang siap pakai.
+Ini adalah antarmuka pengguna (UI) yang dilihat oleh pengguna.
+Laravel menggunakan Blade sebagai mesin templating untuk membuat tampilan dinamis.
+
+Controller:
+Bertindak sebagai perantara atau jembatan antara Model dan View.
+Menerima permintaan dari pengguna.
+Memproses permintaan, berinteraksi dengan Model jika diperlukan untuk mengambil atau memperbarui data.
+Mengirimkan data yang dihasilkan ke View untuk ditampilkan kepada pengguna.

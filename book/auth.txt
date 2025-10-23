@@ -1,0 +1,16 @@
+Auth di Laravel merujuk pada autentikasi dan otorisasi pengguna, yaitu proses memverifikasi kredensial pengguna 
+dan menentukan hak akses mereka untuk mengakses halaman atau fitur tertentu dalam aplikasi web. Laravel menyediakan 
+berbagai cara untuk menerapkan autentikasi, termasuk menggunakan ** Laravel Breeze ** dan Laravel Jetstream untuk
+solusi headless yang cepat, atau implementasi autentikasi manual untuk proyek yang lebih kecil. Autentikasi ini 
+umumnya menggunakan Middleware untuk memeriksa status login pengguna dan fasad Auth untuk interaksi dengan sistem sesi dan pengguna. 
+
+cara membuat authentication atau membuat sebuah form login dan register di laravel
+
+gunakan perintah berikut: 
+                         1.composer require laravel/ui
+                         2.php artisan ui bootstrap --auth
+jika berhasil maka kita cek di folder view/layouts/app.blade.php jika ada @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+hapus saja karna itu bisa jalan ketika kita melakukan perintah 
+                         npm install && npm run dev
+lalu buka kembali localhost:8000 dan jika berhasil maka akan ada tombol login dan register di halaman welcome(default) di atas
+                 
