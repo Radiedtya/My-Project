@@ -4,7 +4,7 @@
 
 <div class="container">
     <h1>Transaksi</h1>
-    <a href="{{ route('transaksi.create') }}" class="btn btn-primary mb-2">+ Tambah Transaksi</a>
+    <a href="{{ route('transaksi.create') }}" class="btn btn-primary mb-2"><i class="bi bi-plus-square"></i> Tambah Transaksi</a>
 
     @if (session('success'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -50,6 +50,9 @@
             @endforeach
         </tbody>
     </table>
+    <a href="{{ route('barang.index') }}" class="btn btn-success"><i class="bi bi-box"></i> Barang</a>
+    <a href="{{ route('pembeli.index') }}" class="btn btn-success"><i class="bi bi-person-badge"></i> Pembeli</a>
+    <a href="{{ route('transaksi.index') }}" class="btn btn-success"><i class="bi bi-journal"></i> Transaksi</a>
 </div>
 
 @endsection
