@@ -9,15 +9,19 @@
     <div class="row justify-content-center g-4">
         @php
             $menus = [
-                ['route' => 'post.index',     'title' => 'Data Post',     'icon' => 'bi-journal-text',      'color' => 'primary'],
-                ['route' => 'biodata.index',  'title' => 'Data Biodata',  'icon' => 'bi-person-lines-fill', 'color' => 'success'],
-                ['route' => 'pengguna.index', 'title' => 'Data Pengguna', 'icon' => 'bi-people-fill',       'color' => 'info'],
-                ['route' => 'telepon.index',  'title' => 'Data Telepon',  'icon' => 'bi-telephone-fill',    'color' => 'warning'],
-                ['route' => 'game.index',     'title' => 'Data Game',     'icon' => 'bi-controller',        'color' => 'danger'],
-                ['route' => 'product.index',  'title' => 'Data Product',  'icon' => 'bi-box-seam',          'color' => 'secondary'],
-                ['route' => 'kelas.index',    'title' => 'Data Kelas',    'icon' => 'bi-mortarboard-fill',  'color' => 'primary'],
-                ['route' => 'murid.index',    'title' => 'Data Murid',    'icon' => 'bi-book',              'color' => 'success'],
+                ['route' => 'post.index',     'title' => 'Data Post',      'icon' => 'bi-journal-text',      'color' => 'primary'],
+                ['route' => 'biodata.index',  'title' => 'Data Biodata',   'icon' => 'bi-person-lines-fill', 'color' => 'success'],
+                ['route' => 'pengguna.index', 'title' => 'Data Pengguna',  'icon' => 'bi-people-fill',       'color' => 'info'],
+                ['route' => 'telepon.index',  'title' => 'Data Telepon',   'icon' => 'bi-telephone-fill',    'color' => 'warning'],
+                ['route' => 'game.index',     'title' => 'Data Game',      'icon' => 'bi-controller',        'color' => 'danger'],
+                ['route' => 'product.index',  'title' => 'Data Product',   'icon' => 'bi-box-seam',          'color' => 'secondary'],
+                ['route' => 'kelas.index',    'title' => 'Data Kelas',     'icon' => 'bi-mortarboard-fill',  'color' => 'primary'],
+                ['route' => 'murid.index',    'title' => 'Data Murid',     'icon' => 'bi-book',              'color' => 'success'],
+                ['route' => 'barang.index',   'title' => 'Data Barang',    'icon' => 'bi-bag-fill',          'color' => 'info'],
+                ['route' => 'pembeli.index',  'title' => 'Data Pembeli',   'icon' => 'bi-person-fill',       'color' => 'warning'],
+                ['route' => 'transaksi.index','title' => 'Data Transaksi', 'icon' => 'bi-receipt-cutoff',    'color' => 'danger'],
             ];
+
         @endphp
 
         @foreach ($menus as $menu)
