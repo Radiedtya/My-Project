@@ -12,6 +12,9 @@ use App\Http\Controllers\GameController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\KelasController;
 use App\Http\Controllers\MuridController;
+use App\Http\Controllers\BarangController;
+use App\Http\Controllers\PembeliController;
+use App\Http\Controllers\TransaksiController;
 
 // Route::get('page', [PageController::class, 'home']);
 // Route::get('post', [PostsController::class,'tampil']);
@@ -24,12 +27,14 @@ Route::resource('game', GameController::class);
 Route::resource('product', ProductController::class);
 Route::resource('kelas', KelasController::class);
 Route::resource('murid', MuridController::class);
+Route::resource('barang', BarangController::class);
+Route::resource('pembeli', PembeliController::class);
+Route::resource('transaksi', TransaksiController::class);
 
 
 Route::get('/daftarcrud', function () {
     return view('daftarcrud');
 })->name('daftarcrud');
-
 
 Route::get('/', function () {
     return view('welcome');

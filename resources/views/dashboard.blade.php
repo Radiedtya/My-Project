@@ -68,7 +68,6 @@
         <!-- Main Content -->
         <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 py-5">
             <div class="card shadow-sm p-4">
-                <h3 class="mb-3">Halo, {{ Auth::user()->name ?? 'User' }} 👋</h3>
                 <p class="text-muted">Selamat datang di dashboard kamu!</p>
                 <hr>
 
