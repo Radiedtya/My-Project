@@ -15,6 +15,7 @@ use App\Http\Controllers\MuridController;
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\PembeliController;
 use App\Http\Controllers\TransaksiController;
+use App\Http\Controllers\DaftarCrudController;
 
 // Route::get('page', [PageController::class, 'home']);
 // Route::get('post', [PostsController::class,'tampil']);
@@ -30,11 +31,11 @@ Route::resource('murid', MuridController::class);
 Route::resource('barang', BarangController::class);
 Route::resource('pembeli', PembeliController::class);
 Route::resource('transaksi', TransaksiController::class);
+Route::resource('daftarcrud', DaftarCrudController::class);
 
-
-Route::get('/daftarcrud', function () {
-    return view('daftarcrud');
-})->name('daftarcrud');
+// Route::get('/daftarcrud', function () {
+//     return view('daftarcrud');
+// })->name('daftarcrud');
 
 Route::get('/', function () {
     return view('welcome');
